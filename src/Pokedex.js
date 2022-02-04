@@ -1,21 +1,22 @@
 import React from 'react';
 import './pokedex.css';
-import pokeData from './pokeData';
 import Pokecard from './Pokecard';
+import { calculateScore } from './helpers';
 
-const Pokedex = () => {
+const Pokedex = ( {hand, isWinner}) => {   
     return (
         <div className='Pokedex'>
-             {pokeData.map(p => {
-                let imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${p.id}.png`;
+            {hand.map(h => {
+                let imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${h.id}.png`;
                 return <Pokecard
-                        key={p.id} 
-                        name={p.name} 
+                        key={h.id} 
+                        name={h.name} 
                         image={imageUrl} 
-                        type={p.type} 
-                        exp={p.base_experience} /> 
+                        type={h.type} 
+                        exp={h.base_experience} /> 
                 }     
-             )}
+            )}
+            { isWinner ? <h3 className='Pokedex-winner'>THIS HAND WINS!</h3> : "" }
         </div>
     )
 }

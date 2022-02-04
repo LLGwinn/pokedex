@@ -2,4 +2,12 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    border-style: ridge;
+    margin: 10px;
+    background-color: lightsteelblue;
+}
+
+.Pokedex-winner {
+    color: darkblue;
+    font-weight: bold;
 }
